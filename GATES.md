@@ -5,14 +5,14 @@ clean Linux machine.
 
 | Gate | Evidence | Status |
 | --- | --- | --- |
-| Git repository with commits | `git log --oneline` | pending commit |
-| Dependency lockfile | `package-lock.json` + `npm ci` | present; runtime check pending |
+| Git repository with commits | `git log --oneline` | met: `32c28f1` |
+| Dependency lockfile | `package-lock.json` + `npm ci` | present; exact pinned-runtime install pending |
 | Runtime pinned | `.nvmrc`, `.node-version`, `package.json#engines`, Dockerfile | present |
 | Docker build/run definition | `Dockerfile`, `.dockerignore` | present; Docker unavailable on this host |
 | One test command | `npm test` | existing command |
 | Setup/run/test documentation | `README.md` | present |
 | Environment template without secrets | `.env.example` | present |
-| No machine-specific absolute paths | repository text audit | pending |
+| No machine-specific absolute paths | repository text audit | met: no matches |
 
 Required commands are documented in `README.md`. The current Windows host has
 Node 25 and does not have Docker installed, so the exact pinned Node 22 Docker
