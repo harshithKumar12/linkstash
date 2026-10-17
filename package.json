@@ -1,0 +1,33 @@
+{
+  "name": "linkstash",
+  "version": "1.0.0",
+  "description": "Local-first read-later link stash with SQLite metadata storage",
+  "main": "src/server.js",
+  "keywords": ["read-later", "bookmarks", "sqlite"],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "engines": {
+    "node": "22.14.0"
+  },
+  "scripts": {
+    "build:css": "tailwindcss -i ./public/input.css -o ./public/styles.css --minify",
+    "build": "npm run build:css && npm run check",
+    "start": "node src/server.js",
+    "check": "node --check src/server.js && node --check src/db.js && node --check src/metadata.js && node --check public/js/app.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "axios": "^1.20.0",
+    "better-sqlite3": "^13.0.3",
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  },
+  "overrides": {
+    "proxy-addr": "2.0.8"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

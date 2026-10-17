@@ -1,0 +1,12 @@
+node_modules
+.git
+.graft
+graft
+data
+.env
+.env.*
+!.env.example
+test
+public/styles.css
+npm-debug.log*
+*.log

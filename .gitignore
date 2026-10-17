@@ -1,0 +1,18 @@
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/
+
+# Local runtime state and secrets.
+node_modules/
+data/*.db
+data/*.db-shm
+data/*.db-wal
+.env
+.env.*
+!.env.example
+
+# Generated frontend asset; rebuild with `npm run build`.
+public/styles.css
+
+# Logs and local tooling output.
+npm-debug.log*
+*.log

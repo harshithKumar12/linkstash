@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linkstash</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .link-card:hover .delete-btn { opacity: 1; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen font-sans">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-10">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <div class="bg-indigo-600 text-white p-2 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                    </svg>
+                </div>
+                <h1 class="text-2xl font-bold text-slate-800 tracking-tight">linkstash</h1>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button id="surprise-btn" class="bg-amber-400 hover:bg-amber-500 text-amber-900 font-semibold px-4 py-2 rounded-full transition-all flex items-center gap-2 text-sm shadow-sm">
+                    <span>✨ Surprise Me</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="max-w-5xl mx-auto px-4 pb-6">
+            <form id="link-form" class="flex flex-col md:flex-row gap-3">
+                <input type="url" id="url-input" placeholder="Paste URL here..." required
+                    class="flex-1 px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                <input type="text" id="tags-input" placeholder="Tags (comma separated)"
+                    class="md:w-1/3 px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-2 rounded-lg transition-all shadow-sm">
+                    Stash it
+                </button>
+            </form>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-8 flex gap-8">
+        <!-- Sidebar: Tags -->
+        <aside class="w-full md:w-48 flex-shrink-0">
+            <h2 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">Tags</h2>
+            <div id="tag-list" class="flex flex-wrap md:flex-col gap-2">
+                <!-- Tags will be injected here -->
+            </div>
+        </aside>
+
+        <!-- Main Content: Queue -->
+        <section class="flex-1">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl font-bold text-slate-800">Your Queue</h2>
+                <div class="flex items-center gap-2 text-sm">
+                    <span class="text-slate-500">Sort by:</span>
+                    <select id="sort-select" class="bg-transparent font-medium text-slate-700 outline-none cursor-pointer hover:text-indigo-600 transition-colors">
+                        <option value="date">Date Added</option>
+                        <option value="tag">Tag Name</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="links-container" class="grid grid-cols-1 gap-4">
+                <!-- Links will be injected here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Surprise Modal -->
+    <div id="surprise-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl overflow-hidden transform transition-all scale-95">
+            <div id="surprise-content" class="p-6">
+                <!-- Surprise content will be injected here -->
+            </div>
+            <div class="bg-slate-50 px-6 py-4 flex justify-end gap-3 border-t border-slate-100">
+                <button id="close-surprise" class="px-4 py-2 text-slate-600 font-medium hover:text-slate-800 transition-colors">Close</button>
+                <a id="surprise-link" target="_blank" class="bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition-all shadow-sm">Read Now</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
